@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class Frame {
 	
-	int score;
-	ArrayList<Character> symbol = new ArrayList<Character>();
+	private int score;
+	private ArrayList<Character> symbol = new ArrayList<Character>();
 	
 	Frame() {
 		

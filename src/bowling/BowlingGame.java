@@ -11,6 +11,8 @@ public class BowlingGame {
 	private int numOfRemainedPins    = 10;
 	private int numRemainedChance = 3;  // for last frame (10 frame)
 	private boolean endOfGame = false;
+
+	public static String SEP = "|";
 	
 	private ArrayList<Frame> frame = new ArrayList<Frame>();
 	
@@ -42,7 +44,21 @@ public class BowlingGame {
 		if (endOfGame) {
 			return;
 		}
- 		if (frameNumber != 10) {
+		
+ 		setFrameSymbol(pin);
+		
+		setFrameScore();
+		
+		displayBoard();
+	}
+
+
+	private void setFrameScore() {
+		
+	}
+
+	private void setFrameSymbol(bowlingSymbol pin) {
+		if (frameNumber != 10) {
 			if ((chanceToRoll == 1) && (numOfRemainedPins == 0)) { //strike
 				frame.get(frameNumber-1).addSymbol(STRIKE);
 				frame.get(frameNumber-1).addSymbol(EMPTY);
@@ -103,10 +119,8 @@ public class BowlingGame {
  					} else {
  						frame.get(frameNumber-1).addSymbol(SPARE);
  					}
- 					System.out.println("Spare!!!");
  					numOfRemainedPins = 10;
  				} else {
- 					System.out.println("Hello");
  					frame.get(frameNumber-1).addSymbol(pin);
  					chanceToRoll = 0;
  					numOfRemainedPins = 10;
@@ -114,16 +128,36 @@ public class BowlingGame {
  				}
  			}
  		}
-		
-		
 	}
 
 	public void getSymbolList() {
-		// TODO Auto-generated method stub
 		for(int i=0;i<frameNumber;i++) {
 			ArrayList<Character> list = frame.get(i).getSymbolList();
 			System.out.println("Frame ("+String.valueOf(i+1)+") : "+list);
 		}
+	}
+
+	private void displayBoard() {
+		System.out.println("-----------------------------------------");
+		System.out.println("| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10|");
+		System.out.println("-----------------------------------------");
+		for(int i=0;i<10;i++) {
+			ArrayList<Character> list = frame.get(i).getSymbolList();
+			if (list.size() == 0) {
+				System.out.print("|"+" "+"|"+" ");
+			} else if (list.size() == 1) {
+				System.out.print("|"+list.get(0)+"|"+" ");
+			} else {
+				System.out.print("|"+list.get(0)+"|"+list.get(1));
+			}
+		}
+		System.out.println("|");
+		System.out.println("-----------------------------------------");
+		for(int i=0;i<10;i++) {
+			System.out.print("| "+frame.get(i).getScore()+" ");
+		}
+		System.out.println("|");
+		System.out.println("-----------------------------------------");
 	}
 	
 	

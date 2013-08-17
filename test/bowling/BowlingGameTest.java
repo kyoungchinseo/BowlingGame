@@ -36,5 +36,6 @@ public class BowlingGameTest extends TestCase {
 		game.roll(ONE);		// 10
 		
 		game.getSymbolList();
+		
 	}
 }
