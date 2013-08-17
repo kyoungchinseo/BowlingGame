@@ -16,22 +16,24 @@ public class BowlingGameTest extends TestCase {
 	}
 	
 	public void testRoll() throws Exception {
-		game.roll(NINE);
-		game.roll(ONE);
-		game.roll(EIGHT);
-		game.roll(GUTTER);
-		game.roll(TEN);
-		game.roll(TEN);
-		game.roll(EIGHT);
-		game.roll(GUTTER);
-		game.roll(TEN);
-		game.roll(EIGHT);
-		game.roll(ONE);
-		game.roll(NINE);
-		game.roll(ONE);
-		game.roll(EIGHT);
-		game.roll(ONE);
-		
+		game.roll(NINE);  	// 1
+		game.roll(ONE);   	// 1
+		game.roll(EIGHT); 	// 2
+		game.roll(GUTTER);	// 2
+		game.roll(TEN);   	// 3
+		game.roll(TEN);   	// 4
+		game.roll(EIGHT); 	// 5
+		game.roll(GUTTER);	// 5
+		game.roll(TEN);		// 6
+		game.roll(EIGHT);	// 7
+		game.roll(ONE);		// 7
+		game.roll(NINE);	// 8
+		game.roll(ONE); 	// 8
+		game.roll(EIGHT);	// 9
+		game.roll(ONE);		// 9
+		game.roll(TEN);		// 10
+		game.roll(NINE);	// 10
+		game.roll(ONE);		// 10
 		
 		game.getSymbolList();
 	}
